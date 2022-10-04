@@ -1,0 +1,132 @@
+
+mysql> use gh;
+Database changed
+mysql> create table airline_ticket(date int(10),name char(30),airline_name char(30),departure char(30),arrival char(30));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | YES  |     | NULL    |       |
+| name         | char(30) | YES  |     | NULL    |       |
+| airline_name | char(30) | YES  |     | NULL    |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> alter table airline_ticket add primary key(date);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | NO   | PRI | 0       |       |
+| name         | char(30) | YES  |     | NULL    |       |
+| airline_name | char(30) | YES  |     | NULL    |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql>  use gh;
+Database changed
+mysql> create table airport_sch(time int(10),airline_name char(30),security_check char(30));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> desc airport_sch;
++----------------+----------+------+-----+---------+-------+
+| Field          | Type     | Null | Key | Default | Extra |
++----------------+----------+------+-----+---------+-------+
+| time           | int(10)  | YES  |     | NULL    |       |
+| airline_name   | char(30) | YES  |     | NULL    |       |
+| security_check | char(30) | YES  |     | NULL    |       |
++----------------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table airport_sch
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> alter table airline_ticket
+    -> drop primary key;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | NO   |     | 0       |       |
+| name         | char(30) | YES  |     | NULL    |       |
+| airline_name | char(30) | YES  |     | NULL    |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.04 sec)
+mysql> alter table airline_ticket
+    -> add primary key(airline_name);
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | NO   |     | 0       |       |
+| name         | char(30) | YES  |     | NULL    |       |
+| airline_name | char(30) | NO   | PRI |         |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> alter table airport_sch
+    -> add foreign key(airline_name) references airline_ticket(airline_name);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc airport_sch;
++----------------+----------+------+-----+---------+-------+
+| Field          | Type     | Null | Key | Default | Extra |
++----------------+----------+------+-----+---------+-------+
+| time           | int(10)  | YES  |     | NULL    |       |
+| airline_name   | char(30) | YES  | MUL | NULL    |       |
+| security_check | char(30) | YES  |     | NULL    |       |
++----------------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table airport_sch
+    -> add primary key(time);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc airport_sch;
++----------------+----------+------+-----+---------+-------+
+| Field          | Type     | Null | Key | Default | Extra |
++----------------+----------+------+-----+---------+-------+
+| time           | int(10)  | NO   | PRI | 0       |       |
+| airline_name   | char(30) | YES  | MUL | NULL    |       |
+| security_check | char(30) | YES  |     | NULL    |       |
++----------------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> alter table airport_sch
+    -> add unique key(security_check);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc airport_sch;
++----------------+----------+------+-----+---------+-------+
+| Field          | Type     | Null | Key | Default | Extra |
++----------------+----------+------+-----+---------+-------+
+| time           | int(10)  | NO   | PRI | 0       |       |
+| airline_name   | char(30) | YES  | MUL | NULL    |       |
+| security_check | char(30) | YES  | UNI | NULL    |       |
++----------------+----------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> 
