@@ -1,0 +1,30 @@
+
+
+mysql> use gh;
+Database changed
+mysql> select*from airline_ticket;
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
+|   12 | rajaa       | rajaa_airline | seatle_WA | singapore    |
++------+-------------+---------------+-----------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select*from airline_ticket where date=24;
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
++------+-------------+---------------+-----------+--------------+
+1 row in set (0.00 sec)
+
+mysql> select*from airline_ticket where arrival='singapore';
++------+-------+---------------+-----------+-----------+
+| date | name  | airline_name  | departure | arrival   |
++------+-------+---------------+-----------+-----------+
+|   12 | rajaa | rajaa_airline | seatle_WA | singapore |
++------+-------+---------------+-----------+-----------+
+1 row in set (0.00 sec)
+
+mysql>
