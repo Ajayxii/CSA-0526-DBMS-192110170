@@ -1,0 +1,57 @@
+
+mysql> use gh;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_gh    |
++-----------------+
+| airline_ticket  |
+| airport_sch     |
+| haha            |
+| product_details |
+| schedule        |
+| supermarket     |
+| workers_details |
++-----------------+
+7 rows in set (0.04 sec)
+
+mysql> select*from airline_ticket;
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   22 | srisanthosh | airasia       | pondi     | male         |
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
+|   12 | rajaa       | rajaa_airline | seatle_WA | singapore    |
+|   17 | kumar       | ryan_air      | paris     | jfk_newyork  |
+|   13 | tinu        | srilankan     | kabul     | colombo      |
++------+-------------+---------------+-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> create view name_view as select name,arrival from airline_ticket;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> select*from name_view
+    -> ;
++-------------+--------------+
+| name        | arrival      |
++-------------+--------------+
+| srisanthosh | male         |
+| arsathahmed | kuala_lampur |
+| rajaa       | singapore    |
+| kumar       | jfk_newyork  |
+| tinu        | colombo      |
++-------------+--------------+
+5 rows in set (0.04 sec)
+
+mysql> create index name on airline_ticket(name);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> show index from airline_ticket;
++----------------+------------+----------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| Table          | Non_unique | Key_name | Seq_in_index | Column_name  | Collation | Cardinality | Sub_part | Packed | Null | Index_type | Comment | Index_comment |
++----------------+------------+----------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+| airline_ticket |          0 | PRIMARY  |            1 | airline_name | A         |           5 |     NULL | NULL   |      | BTREE      |         |               |
+| airline_ticket |          1 | name     |            1 | name         | A         |           5 |     NULL | NULL   | YES  | BTREE      |         |               |
++----------------+------------+----------+--------------+--------------+-----------+-------------+----------+--------+------+------------+---------+---------------+
+2 rows in set (0.04 sec)
+
