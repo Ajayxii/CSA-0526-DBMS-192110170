@@ -19,3 +19,5 @@
 # [outerjoin](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp9.txt)
 # Exp_10
 # [view_index](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms10.txt)
+# Exp_11
+# [if case](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp11.txt)
