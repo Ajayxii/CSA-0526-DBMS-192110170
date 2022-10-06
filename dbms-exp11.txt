@@ -1,0 +1,40 @@
+ 
+mysql> select*from airline_ticket;
+ERROR 1046 (3D000): No database selected
+mysql> use gh
+Database changed
+mysql> select*from airline_ticket;
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   22 | srisanthosh | airasia       | pondi     | male         |
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
+|   12 | rajaa       | rajaa_airline | seatle_WA | singapore    |
+|   17 | kumar       | ryan_air      | paris     | jfk_newyork  |
+|   13 | tinu        | srilankan     | kabul     | colombo      |
++------+-------------+---------------+-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT Name, date,CASE WHEN date >17 THEN 'Estimated_at' WHEN date >13 THEN 'boarding' ELSE 'prepared_to_taxi' END AS status FROM airline_ticket;
++-------------+------+------------------+
+| Name        | date | status           |
++-------------+------+------------------+
+| srisanthosh |   22 | Estimated_at     |
+| arsathahmed |   24 | Estimated_at     |
+| rajaa       |   12 | prepared_to_taxi |
+| kumar       |   17 | boarding         |
+| tinu        |   13 | prepared_to_taxi |
++-------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> select name,date,if(date>=17,"boarding","prepared_to_taxi") from airline_ticket;
++-------------+------+--------------------------------------------+
+| name        | date | if(date>=17,"boarding","prepared_to_taxi") |
++-------------+------+--------------------------------------------+
+| srisanthosh |   22 | boarding                                   |
+| arsathahmed |   24 | boarding                                   |
+| rajaa       |   12 | prepared_to_taxi                           |
+| kumar       |   17 | boarding                                   |
+| tinu        |   13 | prepared_to_taxi                           |
++-------------+------+--------------------------------------------+
+5 rows in set (0.04 sec)
