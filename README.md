@@ -5,3 +5,5 @@
 # [foreign_primary_unique_keys](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp2.txt)
 # Exp_3
 # [select_insert](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp3.txt)
+# Exp_4
+# [update_delete](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp4.txt)
