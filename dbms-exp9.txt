@@ -1,0 +1,97 @@
+
+mysql> use gh
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_gh    |
++-----------------+
+| airline_ticket  |
+| airport_sch     |
+| haha            |
+| product_details |
+| schedule        |
+| supermarket     |
+| workers_details |
++-----------------+
+7 rows in set (0.04 sec)
+
+mysql> desc schedule
+    -> ;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| dep_time     | int(12)  | YES  |     | NULL    |       |
+| airline_name | char(30) | YES  |     | NULL    |       |
+| gate         | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | NO   |     | 0       |       |
+| name         | char(30) | YES  |     | NULL    |       |
+| airline_name | char(30) | NO   | PRI |         |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.05 sec)
+mysql> select departure,arrival,dep_time,gate
+    -> from airline_ticket,schedule
+    -> where dep_time=12;
++-----------+--------------+----------+------------+
+| departure | arrival      | dep_time | gate       |
++-----------+--------------+----------+------------+
+| pondi     | male         |       12 | final_call |
+| doha      | kuala_lampur |       12 | final_call |
+| seatle_WA | singapore    |       12 | final_call |
+| paris     | jfk_newyork  |       12 | final_call |
+| kabul     | colombo      |       12 | final_call |
++-----------+--------------+----------+------------+
+5 rows in set (0.00 sec)
+mysql> select name,departure
+    -> from airline_ticket
+    -> left outer join schedule
+    -> on dep_time=13;
++-------------+-----------+
+| name        | departure |
++-------------+-----------+
+| srisanthosh | pondi     |
+| arsathahmed | doha      |
+| rajaa       | seatle_WA |
+| kumar       | paris     |
+| tinu        | kabul     |
++-------------+-----------+
+5 rows in set (0.00 sec)
+mysql> select name,departure,gate
+    -> from airline_ticket
+    -> left outer join schedule
+    -> on dep_time=13;
++-------------+-----------+----------+
+| name        | departure | gate     |
++-------------+-----------+----------+
+| srisanthosh | pondi     | boarding |
+| arsathahmed | doha      | boarding |
+| rajaa       | seatle_WA | boarding |
+| kumar       | paris     | boarding |
+| tinu        | kabul     | boarding |
++-------------+-----------+----------+
+5 rows in set (0.00 sec)
+
+mysql> select name,departure,gate
+    -> from airline_ticket
+    -> right outer join schedule
+    -> on dep_time=14;
++-------------+-----------+------------+
+| name        | departure | gate       |
++-------------+-----------+------------+
+| srisanthosh | pondi     | scheduled  |
+| arsathahmed | doha      | scheduled  |
+| rajaa       | seatle_WA | scheduled  |
+| kumar       | paris     | scheduled  |
+| tinu        | kabul     | scheduled  |
++-------------+-----------+------------+
+9 rows in set (0.00 sec)
+
+mysql>
