@@ -11,3 +11,5 @@
 # [selectfromtable](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp5.txt)
 # Exp_6
 # [selectfromtable](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp6.txt)
+# Exp7
+# [order,group,having](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp7.txt)
