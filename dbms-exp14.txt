@@ -1,0 +1,83 @@
+
+mysql> use gh;
+Database changed
+mysql> show tables;
++-----------------+
+| Tables_in_gh    |
++-----------------+
+| aircraft        |
+| airline_ticket  |
+| airport_sch     |
+| haha            |
+| name_view       |
+| product_details |
+| schedule        |
+| supermarket     |
+| workers_details |
++-----------------+
+9 rows in set (0.00 sec)
+
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | NO   |     | 0       |       |
+| name         | char(30) | YES  | MUL | NULL    |       |
+| airline_name | char(30) | NO   | PRI |         |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.02 sec)
+
+mysql> create user ajayyy;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> grant all on airline_ticket to ajayyy;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show grants for ajayyy;
++---------------------------------------------------------------+
+| Grants for ajayyy@%                                           |
++---------------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ajayyy'@'%'                            |
+| GRANT ALL PRIVILEGES ON `gh`.`airline_ticket` TO 'ajayyy'@'%' |
++---------------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql>
+mysql> revoke all on airline_ticket from ajayyy;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for ajayyy;
++------------------------------------+
+| Grants for ajayyy@%                |
++------------------------------------+
+| GRANT USAGE ON *.* TO 'ajayyy'@'%' |
++------------------------------------+
+1 row in set (0.00 sec)
+
+mysql> grant select,update on aircraft to ajayyy;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for ajayyy;
++---------------------------------------------------------+
+| Grants for ajayyy@%                                     |
++---------------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ajayyy'@'%'                      |
+| GRANT SELECT, UPDATE ON `gh`.`aircraft` TO 'ajayyy'@'%' |
++---------------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql> revoke update on aircraft from ajayyy;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> show grants for ajayyy;
++-------------------------------------------------+
+| Grants for ajayyy@%                             |
++-------------------------------------------------+
+| GRANT USAGE ON *.* TO 'ajayyy'@'%'              |
+| GRANT SELECT ON `gh`.`aircraft` TO 'ajayyy'@'%' |
++-------------------------------------------------+
+2 rows in set (0.00 sec)
+
+mysql>
