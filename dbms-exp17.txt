@@ -1,0 +1,38 @@
+
+mysql> use gh;
+Database changed
+mysql> select*from airline_ticket;
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   22 | srisanthosh | airasia       | pondi     | male         |
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
+|   12 | rajaa       | rajaa_airline | seatle_WA | singapore    |
+|   17 | kumar       | ryan_air      | paris     | jfk_newyork  |
+|   13 | tinu        | srilankan     | kabul     | colombo      |
++------+-------------+---------------+-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> select repeat(name,3) from airline_ticket;
++-----------------------------------+
+| repeat(name,3)                    |
++-----------------------------------+
+| arsathahmedarsathahmedarsathahmed |
+| kumarkumarkumar                   |
+| rajaarajaarajaa                   |
+| srisanthoshsrisanthoshsrisanthosh |
+| tinutinutinu                      |
++-----------------------------------+
+5 rows in set (0.01 sec)
+
+mysql> select repeat(airline_name,2) from airline_ticket;
++----------------------------+
+| repeat(airline_name,2)     |
++----------------------------+
+| qatar_airwaysqatar_airways |
+| ryan_airryan_air           |
+| rajaa_airlinerajaa_airline |
+| airasiaairasia             |
+| srilankansrilankan         |
++----------------------------+
+5 rows in set (0.00 sec)
