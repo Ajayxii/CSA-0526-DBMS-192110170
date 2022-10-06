@@ -15,3 +15,5 @@
 # [order,group,having](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp7.txt)
 # Exp_8
 # [select](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp8.txt)
+# Exp9
+# [outerjoin](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp9.txt)
