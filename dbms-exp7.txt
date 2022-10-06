@@ -1,0 +1,94 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 5
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use gh;
+Database changed
+mysql> select*from schedule;
++----------+---------------+------------+
+| dep_time | airline_name  | gate       |
++----------+---------------+------------+
+|       13 | qatar_airways | boarding   |
+|       14 | Emirates      | scheduled  |
+|       12 | etihad        | final_call |
++----------+---------------+------------+
+3 rows in set (0.00 sec)
+
+mysql> insert into schedule
+    -> values(15,'cathay_pacific','scheduled'),(11,'lufthansa','departed');
+Query OK, 2 rows affected (0.04 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select*from schedule;
++----------+----------------+------------+
+| dep_time | airline_name   | gate       |
++----------+----------------+------------+
+|       13 | qatar_airways  | boarding   |
+|       14 | Emirates       | scheduled  |
+|       12 | etihad         | final_call |
+|       15 | cathay_pacific | scheduled  |
+|       11 | lufthansa      | departed   |
++----------+----------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select*from schedule
+    -> order by airline_name;
++----------+----------------+------------+
+| dep_time | airline_name   | gate       |
++----------+----------------+------------+
+|       15 | cathay_pacific | scheduled  |
+|       14 | Emirates       | scheduled  |
+|       12 | etihad         | final_call |
+|       11 | lufthansa      | departed   |
+|       13 | qatar_airways  | boarding   |
++----------+----------------+------------+
+5 rows in set (0.03 sec)
+
+mysql> select*from schedule
+    -> order by dep_time;
++----------+----------------+------------+
+| dep_time | airline_name   | gate       |
++----------+----------------+------------+
+|       11 | lufthansa      | departed   |
+|       12 | etihad         | final_call |
+|       13 | qatar_airways  | boarding   |
+|       14 | Emirates       | scheduled  |
+|       15 | cathay_pacific | scheduled  |
++----------+----------------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select*from schedule
+    -> having dep_time>12;
++----------+----------------+-----------+
+| dep_time | airline_name   | gate      |
++----------+----------------+-----------+
+|       13 | qatar_airways  | boarding  |
+|       14 | Emirates       | scheduled |
+|       15 | cathay_pacific | scheduled |
++----------+----------------+-----------+
+3 rows in set (0.00 sec)
+mysql> use gh;
+Database changed
+mysql> select*from schedule
+    -> group by dep_time;
++----------+----------------+------------+
+| dep_time | airline_name   | gate       |
++----------+----------------+------------+
+|       11 | lufthansa      | departed   |
+|       12 | etihad         | final_call |
+|       13 | qatar_airways  | boarding   |
+|       14 | Emirates       | scheduled  |
+|       15 | cathay_pacific | scheduled  |
++----------+----------------+------------+
+5 rows in set (0.04 sec)
+
+mysql>
