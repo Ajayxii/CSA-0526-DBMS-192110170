@@ -1,0 +1,57 @@
+mysql> USE GH;
+Database changed
+mysql> select*from airline_ticket;
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   22 | srisanthosh | airasia       | pondi     | male         |
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
+|   12 | rajaa       | rajaa_airline | seatle_WA | singapore    |
+|   17 | kumar       | ryan_air      | paris     | jfk_newyork  |
+|   13 | tinu        | srilankan     | kabul     | colombo      |
++------+-------------+---------------+-----------+--------------+
+5 rows in set (0.00 sec)
+
+mysql> create table haha(name char(30),age int(30));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc haha;
++-------+----------+------+-----+---------+-------+
+| Field | Type     | Null | Key | Default | Extra |
++-------+----------+------+-----+---------+-------+
+| name  | char(30) | YES  |     | NULL    |       |
+| age   | int(30)  | YES  |     | NULL    |       |
++-------+----------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+mysql> alter table haha
+    -> drop column age;
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table haha
+    -> add column dep char(30);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> insert into haha(name,dep)
+    -> select name,departure
+    -> from airline_ticket where arrival='singapore';
+Query OK, 1 row affected (0.04 sec)
+Records: 1  Duplicates: 0  Warnings: 0
+
+mysql> select*from haha;
++-------+-----------+
+| name  | dep       |
++-------+-----------+
+| rajaa | seatle_WA |
++-------+-----------+
+1 row in set (0.00 sec)
+
+mysql> select*from airline_ticket where date>=(select avg(date)from airline_ticket);
++------+-------------+---------------+-----------+--------------+
+| date | name        | airline_name  | departure | arrival      |
++------+-------------+---------------+-----------+--------------+
+|   22 | srisanthosh | airasia       | pondi     | male         |
+|   24 | arsathahmed | qatar_airways | doha      | kuala_lampur |
++------+-------------+---------------+-----------+--------------+
+2 rows in set (0.04 sec)
