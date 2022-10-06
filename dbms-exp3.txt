@@ -1,0 +1,53 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use gh;
+Database changed
+mysql> desc airline_ticket;
++--------------+----------+------+-----+---------+-------+
+| Field        | Type     | Null | Key | Default | Extra |
++--------------+----------+------+-----+---------+-------+
+| date         | int(10)  | NO   |     | 0       |       |
+| name         | char(30) | YES  |     | NULL    |       |
+| airline_name | char(30) | NO   | PRI |         |       |
+| departure    | char(30) | YES  |     | NULL    |       |
+| arrival      | char(30) | YES  |     | NULL    |       |
++--------------+----------+------+-----+---------+-------+
+5 rows in set (0.03 sec)
+
+mysql> insert into airline_ticket
+    -> values(12,'rajaa','singapore_airline','seatle_WA','singapore'),(24,'arsathahmed','qatar_airways','doha','chennai'),(30,'kowshik','Emirates','dubai','brisbane');
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> select*from airline_ticket;
++------+-------------+---------------+-----------+-----------+
+| date | name        | airline_name  | departure | arrival   |
++------+-------------+---------------+-----------+-----------+
+|   30 | kowshik     | Emirates      | dubai     | brisbane  |
+|   24 | arsathahmed | qatar_airways | doha      | chennai   |
+|   12 | rajaa       | rajaa_airline | seatle_WA | singapore |
++------+-------------+---------------+-----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select airline_name from airline_ticket;
++---------------+
+| airline_name  |
++---------------+
+| Emirates      |
+| qatar_airways |
+| rajaa_airline |
++---------------+
+3 rows in set (0.00 sec)
+
+mysql>
