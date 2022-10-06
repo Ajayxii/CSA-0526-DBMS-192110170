@@ -17,3 +17,5 @@
 # [select](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp8.txt)
 # Exp9
 # [outerjoin](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp9.txt)
+# Exp_10
+# [view_index](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms10.txt)
