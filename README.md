@@ -21,5 +21,7 @@
 # [view_index](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms10.txt)
 # Exp_11
 # [if case](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp11.txt)
-# Exp 13
+# Exp_13
 # [savepoint](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp13.txt)
+# Exp_14
+# [grant revoke](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp14.txt)
