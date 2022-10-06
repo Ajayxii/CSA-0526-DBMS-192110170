@@ -9,3 +9,5 @@
 # [update_delete](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp4.txt)
 # Exp_5
 # [selectfromtable](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp5.txt)
+# Exp_6
+# [selectfromtable](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp6.txt)
