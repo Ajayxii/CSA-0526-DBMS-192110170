@@ -33,3 +33,5 @@
 # [whilewith](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/DBMS-EXP16.txt)
 # Exp_17
 # [repeat](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp17.txt)
+# Exp_18
+# [autocommit](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/DBMS-EXP16.txt)
