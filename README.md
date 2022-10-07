@@ -29,5 +29,7 @@
 # [grant revoke](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp14.txt)
 # Exp_15
 # [while table](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp15.txt)
+# Exp_16
+# [whilewith](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/DBMS-EXP16.txt)
 # Exp_17
 # [repeat](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp17.txt)
