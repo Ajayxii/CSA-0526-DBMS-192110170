@@ -21,6 +21,8 @@
 # [view_index](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms10.txt)
 # Exp_11
 # [if case](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp11.txt)
+# Exp_12
+# [while](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms_exp12.txt)
 # Exp_13
 # [savepoint](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp13.txt)
 # Exp_14
