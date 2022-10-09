@@ -1,0 +1,170 @@
+Enter password: *****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.5.62 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use gh
+Database changed
+mysql> desc studentdet;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| reg_no | int(77)     | NO   | PRI | 0       |       |
+| name   | varchar(40) | YES  |     | NULL    |       |
+| dbms   | int(6)      | YES  |     | NULL    |       |
+| maths  | int(6)      | YES  |     | NULL    |       |
+| java   | int(6)      | YES  |     | NULL    |       |
+| os     | int(8)      | YES  |     | NULL    |       |
+| grade  | char(2)     | YES  |     | NULL    |       |
+| result | varchar(5)  | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+8 rows in set (0.01 sec)
+
+mysql> select*from studentdet;
+Empty set (0.00 sec)
+
+mysql> insert into studentdet
+    -> values(201,'ajay',90,92,94,95,'S','pass'),(202,'varshithroshan',91,80,82,
+84,'A','pass'),(203,'prabhuraj',92,78,72,74,'B','pass'),(204,'pranav',93,69,69,6
+9,'C','pass');
+Query OK, 4 rows affected (0.09 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select*from studentdet;
++--------+----------------+------+-------+------+------+-------+--------+
+| reg_no | name           | dbms | maths | java | os   | grade | result |
++--------+----------------+------+-------+------+------+-------+--------+
+|    201 | ajay           |   90 |    92 |   94 |   95 | S     | pass   |
+|    202 | varshithroshan |   91 |    80 |   82 |   84 | A     | pass   |
+|    203 | prabhuraj      |   92 |    78 |   72 |   74 | B     | pass   |
+|    204 | pranav         |   93 |    69 |   69 |   69 | C     | pass   |
++--------+----------------+------+-------+------+------+-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> insert into studentdet values(206,'apisheke',92,92,57,69,'D','pass'),(205
+,'arigopal',48,43,44,97,'F','fail');
+Query OK, 2 rows affected (0.11 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select reg_no,grade,
+    -> case
+    -> when grade='S' then 'Distinction'
+    -> when grade='A' then 'Excellent'
+    -> when grade='B' then 'very good'
+    -> when grade='C' or grade='d' then 'Average'
+    -> else 'poor'
+    -> end as performance
+    -> from studentdet;
++--------+-------+-------------+
+| reg_no | grade | performance |
++--------+-------+-------------+
+|    201 | S     | Distinction |
+|    202 | A     | Excellent   |
+|    203 | B     | very good   |
+|    204 | C     | Average     |
+|    205 | F     | poor        |
+|    206 | D     | Average     |
++--------+-------+-------------+
+6 rows in set (0.00 sec)
+
+mysql> select avg(maths) as sum_of_maths from studentdet;
++--------------+
+| sum_of_maths |
++--------------+
+|      75.6667 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(dbms) as sum_of_dbms from studentdet;
++-------------+
+| sum_of_dbms |
++-------------+
+|         506 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> create view grades as select*from studentdet where os>74;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> select*from grades;
++--------+----------------+------+-------+------+------+-------+--------+
+| reg_no | name           | dbms | maths | java | os   | grade | result |
++--------+----------------+------+-------+------+------+-------+--------+
+|    201 | ajay           |   90 |    92 |   94 |   95 | S     | pass   |
+|    202 | varshithroshan |   91 |    80 |   82 |   84 | A     | pass   |
+|    205 | arigopal       |   48 |    43 |   44 |   97 | F     | fail   |
++--------+----------------+------+-------+------+------+-------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select*from studentdet order by name;
++--------+----------------+------+-------+------+------+-------+--------+
+| reg_no | name           | dbms | maths | java | os   | grade | result |
++--------+----------------+------+-------+------+------+-------+--------+
+|    201 | ajay           |   90 |    92 |   94 |   95 | S     | pass   |
+|    206 | apisheke       |   92 |    92 |   57 |   69 | D     | pass   |
+|    205 | arigopal       |   48 |    43 |   44 |   97 | F     | fail   |
+|    203 | prabhuraj      |   92 |    78 |   72 |   74 | B     | pass   |
+|    204 | pranav         |   93 |    69 |   69 |   69 | C     | pass   |
+|    202 | varshithroshan |   91 |    80 |   82 |   84 | A     | pass   |
++--------+----------------+------+-------+------+------+-------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select*from studentdet where result='fail';
++--------+----------+------+-------+------+------+-------+--------+
+| reg_no | name     | dbms | maths | java | os   | grade | result |
++--------+----------+------+-------+------+------+-------+--------+
+|    205 | arigopal |   48 |    43 |   44 |   97 | F     | fail   |
++--------+----------+------+-------+------+------+-------+--------+
+1 row in set (0.00 sec)
+
+mysql> select reg_no,name,maths from studentdet order by maths DESC;
++--------+----------------+-------+
+| reg_no | name           | maths |
++--------+----------------+-------+
+|    201 | ajay           |    92 |
+|    206 | apisheke       |    92 |
+|    202 | varshithroshan |    80 |
+|    203 | prabhuraj      |    78 |
+|    204 | pranav         |    69 |
+|    205 | arigopal       |    43 |
++--------+----------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select reg_no,name,maths from studentdet order by maths ASC;;
++--------+----------------+-------+
+| reg_no | name           | maths |
++--------+----------------+-------+
+|    205 | arigopal       |    43 |
+|    204 | pranav         |    69 |
+|    203 | prabhuraj      |    78 |
+|    202 | varshithroshan |    80 |
+|    201 | ajay           |    92 |
+|    206 | apisheke       |    92 |
++--------+----------------+-------+
+6 rows in set (0.00 sec)
+
+ERROR:
+No query specified
+
+mysql> select reg_no,name,maths from studentdet order by maths ASC;
++--------+----------------+-------+
+| reg_no | name           | maths |
++--------+----------------+-------+
+|    205 | arigopal       |    43 |
+|    204 | pranav         |    69 |
+|    203 | prabhuraj      |    78 |
+|    202 | varshithroshan |    80 |
+|    201 | ajay           |    92 |
+|    206 | apisheke       |    92 |
++--------+----------------+-------+
+6 rows in set (0.00 sec)
+
+mysql>
