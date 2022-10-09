@@ -45,3 +45,5 @@
 # [general hospital](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms_exp23.txt)
 # Exp_24
 # [carcompany](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp24.txt)
+# Exp_25
+# [student details](https://github.com/Ajayxii/CSA-0526-DBMS-192110170/blob/main/dbms-exp25.txt)
